@@ -1,0 +1,62 @@
+{{form_start(form, {'method': 'POST', 'attr':{'class': 'register well form-horizontal'}})}}
+<fieldset>
+    <legend>
+        <center>
+            <h2>
+                <b>{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</b>
+            </h2>
+        </center>
+    </legend>
+    <br>
+    <div class="form-group">
+        {{ form_label(form.username, form.username, { 'label_attr': {'class': 'col-md-4 control-label'} }) }}
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder':'Username'} }) }}
+            </div>
+        </div>
+        {{ form_errors(form.username) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.email, form.email, { 'label_attr': {'class': 'col-md-4 control-label'} }) }}
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder':'E-Mail Address'} }) }}
+            </div>
+        </div>
+
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.plainPassword.first, form.plainPassword.first, { 'label_attr': {'class': 'col-md-4 control-label'} }) }}
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder':'Password'} }) }}
+            </div>
+        </div>
+
+        {{ form_errors(form.plainPassword.first) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.plainPassword.second, form.plainPassword.second, { 'label_attr': {'class': 'col-md-4 control-label'} }) }}
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder':'Repeat password'} }) }}
+            </div>
+        </div>
+        {{ form_errors(form.plainPassword.second) }}
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4"><br>
+            <button class="btn btn-warning" type="submit" name="action">
+                {{ 'registration.submit'|trans({}, 'FOSUserBundle') }}
+            </button>
+        </div>
+    </div>
+</fieldset>
+{{ form_end(form) }}

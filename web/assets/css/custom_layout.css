@@ -1,0 +1,323 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 17, 2017, 8:23:53 AM
+    Author     : et4m1r
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/* Note: Try to remove the following lines to see the effect of CSS positioning */
+
+body {
+    font-family: 'Open Sans', serif !important;
+}
+/*affix header*/
+.affix {
+    top: 0;
+    width: 100%;
+}
+.affix + .container-fluid {
+    padding-top: 52px;
+}
+#brand {
+    display: none;
+}
+.affix-header {
+    background: #445c7c;
+}
+.affix-header .affix-bg {
+    background-image: url("/assets/image/picture/sb-sq.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-position: right 0px bottom -50px;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+    filter: alpha(opacity=15);
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: greyscale(100%);
+    filter: gray;
+    filter: url(data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/sv…0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale);
+    filter: grayscale(100%);
+}
+.affix-header .affix-content {
+    position: absolute;
+}
+.affix-header .affix-content .affix-logo {
+    heigth: 160px;
+    width: 160px;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    z-index: 1;
+}
+.affix-header .affix-content .affix-title {
+    left: 200px;
+    top: 70px;
+    width: 500px;
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+}
+/*navbar customization*/
+.navbar {
+    z-index: 16;
+    margin-bottom: 0px !important;
+}
+.navbar .affix-logo {
+    padding: 0;
+    padding-left: 30px;
+    margin: 0;
+}
+.navbar-header {
+    margin-left: -80px;
+    transition: all 0.25s ease-in-out;
+}
+.navbar-collapse > ul {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.navbar .affix-logo > img {
+    heigth: 44px;
+    width: 44px;
+    z-index: 1;
+}
+.navbar-nav > li > a {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-top: 4px transparent solid;
+}
+.navbar {
+    min-height: 32px !important;
+    border-bottom: solid #E3E4DC 2px !important;
+}
+.navbar-brand {
+    max-height: 30px !important;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #000 !important;
+    /*Sets the text hover color on navbar*/
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #000 !important;
+    /*BACKGROUND color for active*/
+
+    background-color: #fff !important;
+}
+.navbar-default {
+    background-color: #fff !important;
+    border-top: 0 !important;
+    border-color: #EEEEEE !important;
+    border-radius: 0 !important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #000 !important;
+    text-decoration: none !important;
+    background-color: #66CCFF !important;
+    /*change color of links in drop down here*/
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: none !important;
+    border-top: 4px #99863B solid;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000 !important;
+    /*Change active text color here*/
+
+    font-size: 1.3rem !important;
+}
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
+    background-color: #fff !important;
+    border-color: #99863B !important;
+}
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style-type: none;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #1c3146;
+    white-space: nowrap;
+    font-size: 1.2rem !important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: #000 !important;
+    font-size: 1.2rem !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+    color: #ee3524 !important;
+}
+/*footer*/
+footer {
+    background-color: #445c7c;
+    min-height: 350px;
+    font-family: 'Open Sans', sans-serif;
+}
+.footer-col {
+    margin-top: 50px;
+}
+.logofooter {
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+}
+.footer-col p {
+    color: #fff;
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+}
+.footer-col p i {
+    width: 20px;
+    color: #999;
+}
+.footer-ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 2px;
+}
+.footer-ul li {
+    line-height: 29px;
+    font-size: 12px;
+}
+.footer-ul li a {
+    color: #a0a3a4;
+    transition: color 0.2s linear 0s, background 0.2s linear 0s;
+}
+.footer-ul i {
+    margin-right: 10px;
+}
+.footer-ul li a:hover {
+    transition: color 0.2s linear 0s, background 0.2s linear 0s;
+    color: #ff670f;
+}
+.copyright {
+    min-height: 40px;
+    background-color: #2c3d54;
+}
+.copyright p {
+    text-align: left;
+    color: #FFF;
+    padding: 10px 0;
+    margin-bottom: 0;
+}
+.heading7 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #d9d6d6;
+    margin-bottom: 22px;
+}
+.post p {
+    font-size: 12px;
+    color: #FFF;
+    line-height: 20px;
+}
+.post p span {
+    display: block;
+    color: #8f8f8f;
+}
+.bottom_ul {
+    list-style-type: none;
+    float: right;
+    margin-bottom: 0;
+}
+.bottom_ul li {
+    float: left;
+    line-height: 40px;
+}
+.bottom_ul li:after {
+    content: "/";
+    color: #FFF;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+.bottom_ul li a {
+    color: #FFF;
+    font-size: 12px;
+}
+.social-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+    padding-top: 7px;
+    border-radius: 50%;
+}
+.footer-social li {
+    float: left;
+}
+.linked-in {
+    background-color: #007bb6;
+}
+.facebook {
+    background-color: #3b5998;
+}
+.twitter {
+    background-color: #1da1f2;
+}
+.google {
+    background-color: #f63e28;
+}
+/*to top*/
+.to-top-holder {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(57%, rgba(0, 0, 0, 0.43)), color-stop(71%, rgba(0, 0, 0, 0.54)), color-stop(75%, rgba(0, 0, 0, 0.57)), color-stop(100%, rgba(0, 0, 0, 0.9)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.43) 57%, rgba(0, 0, 0, 0.54) 71%, rgba(0, 0, 0, 0.57) 75%, rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.43) 57%, rgba(0, 0, 0, 0.54) 71%, rgba(0, 0, 0, 0.57) 75%, rgba(0, 0, 0, 0.9) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0);
+}
+.to-top-holder .to-top {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    width: 40px;
+    height: 40px;
+    background: #99863B;
+    pointer-events: all;
+    cursor: pointer;
+}
+.to-top-holder .to-top i {
+    color: #fff;
+    font-size: 20px;
+    margin: 10px;
+}

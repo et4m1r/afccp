@@ -1,0 +1,282 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 17, 2017, 8:23:32 AM
+    Author     : et4m1r
+*/
+
+/*carousel customization*/
+.swiper-item-outer {
+    background: #445c7c;
+    padding: 0px !important;
+}
+.swiper-item-inner {
+    height: 350px;
+    background-size: cover;
+    opacity: 0.1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=15)";
+    filter: alpha(opacity=15);
+    -webkit-filter: grayscale(1);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: greyscale(100%);
+    filter: gray;
+    filter: url(data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/sv…0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale);
+    filter: grayscale(100%);
+}
+.carousel .carousel-inner .carousel-caption {
+    max-width: 30%;
+    text-align: left;
+}
+.carousel .carousel-inner .carousel-caption a {
+    text-decoration: none;
+    color: #fff;
+}
+.carousel .carousel-inner .carousel-caption .glyphicon {
+    margin-top: 5px;
+    font-size: 25px;
+    vertical-align: middle;
+    padding-right: 10px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+.swiper-item-prev {
+    background-image: url("/assets/image/slider/healthier-tn-bb.jpg");
+}
+.swiper-item-mid {
+    background-image: url("/assets/image/slider/healthier-tn-bb.jpg");
+    background-repeat: no-repeat;
+    height: 350px;
+    background-size: cover;
+    box-shadow: 0 0 30px black;
+    z-index: 1;
+}
+@media (max-width: 768px) {
+    .swiper-item-mid {
+        height: 300px;
+    }
+    .swiper-item-inner {
+        height: 300px;
+    }
+}
+@media (max-width: 576px) {
+    .swiper-item-mid {
+        height: 200px;
+    }
+    .swiper-item-inner {
+        height: 200px;
+    }
+}
+.swiper-item-next {
+    background-image: url("/assets/image/slider/healthier-tn-bb.jpg");
+}
+/*news article*/
+article.style1 {
+    position: relative;
+    height: auto;
+    min-height: 150px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+article img {
+    opacity: 1;
+    width: 100%;
+    z-index: 2;
+    margin: 0 0 0 0;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: margin .4s ease-in-out, -webkit-transform .4s ease-in-out, -webkit-filter .4s ease-in-out;
+    transition: margin .4s ease-in-out, -webkit-transform .4s ease-in-out, -webkit-filter .4s ease-in-out;
+    transition: transform .4s ease-in-out, margin .4s ease-in-out, filter .4s ease-in-out;
+    transition: transform .4s ease-in-out, margin .4s ease-in-out, filter .4s ease-in-out, -webkit-transform .4s ease-in-out, -webkit-filter .4s ease-in-out;
+}
+article img.show {
+    opacity: 1;
+}
+article.style1:hover img {
+    margin: 0 0 0 0%;
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+article.style1 .date {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    background: #99863B;
+    font-style: normal;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    padding: 3px;
+}
+article.style1 .content {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+}
+article.style1 .title {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: rgba(68, 92, 124, .75);
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    -webkit-transition: background .4s ease-in-out;
+    transition: background .4s ease-in-out;
+}
+article.style1:hover .title {
+    background: rgba(68, 92, 124, 1);
+}
+article.style1 .info {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    background: #99863B;
+    text-align: left;
+    overflow: hidden;
+    -webkit-transition: max-height .3s ease-in-out, color .4s ease-in-out;
+    transition: max-height .3s ease-in-out, color .4s ease-in-out;
+}
+article.style1 .info p {
+    padding: 5px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: #fff;
+}
+article.style1:hover .info {
+    max-height: 75px;
+    color: #fff;
+}
+/*our service section*/
+.ourservice-divider {
+    margin: 15px 0;
+}
+.ourservice-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+@media (min-width: 768px) {
+    .ourservice-heading {
+        font-size: 50px;
+    }
+}
+@media (min-width: 992px) {
+    .ourservice-heading {
+        margin-top: 120px;
+    }
+}
+/*owl carousel customization*/
+.owl-carousel img {
+    width: 50px !important;
+    height: 50px;
+    display: inline-block;
+    float: left;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+.owl-carousel p {
+    display: inline-block;
+    float: left;
+    padding: 8px;
+    font-size: 12px;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+.owl-carousel a:hover img {
+    opacity: 1;
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+.owl-carousel a:hover p {
+    opacity: 1;
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+
+
+/*//*/
+.spinner {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    margin: 1em;
+    padding: 1em 2em;
+    box-shadow: inset 0 0 0 2px #f45e61;
+    color: #f45e61;
+    font-size: inherit;
+    font-weight: 700;
+    position: relative;
+    vertical-align: middle;
+}
+.spinner::before, button::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.spinner:focus {outline:0;}
+
+
+.spin {
+    width: 100%;
+    padding: 0;
+}
+.spin:hover {
+    color: #0eb7da;
+}
+.spin::before, .spin::after {
+    top: 0;
+    left: 0;
+}
+.spin::before {
+    border: 2px solid transparent;
+}
+.spin:hover::before {
+    border-top-color: #0eb7da;
+    border-right-color: #0eb7da;
+    border-bottom-color: #0eb7da;
+    -webkit-transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+    transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+}
+.spin::after {
+    border: 0 solid transparent;
+}
+.spin:hover::after {
+    border-top: 2px solid #0eb7da;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    -webkit-transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+    transition: border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s, -webkit-transform 0.4s linear 0s;
+}
+
+.circle {
+    border-radius: 100%;
+    box-shadow: none;
+}
+.circle::before, .circle::after {
+    border-radius: 100%;
+}
+
