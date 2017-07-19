@@ -1,0 +1,22 @@
+{
+  "name": "afccp",
+  "authors": [
+    "et4m1r <et4m1r@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "owl.carousel": "owl-carousel2#^2.2.1"
+  }
+}
