@@ -39,3 +39,14 @@
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
+
+
+# Backup entities generated with doctrine:generate:entities command
+**/Entity/*~
+
+
+/vendor/*
+/web/assets/vendor/*
+
+#netbeans specific
+nbproject/*
