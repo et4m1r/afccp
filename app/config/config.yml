@@ -75,6 +75,7 @@ easy_admin:
 #        - AppBundle\Entity\Product
 #        - AppBundle\Entity\Category
         User:
+            controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\User
             list:
                 fields:
@@ -90,7 +91,6 @@ easy_admin:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
                     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         Post:
-            
             controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\Post
             list:
@@ -98,9 +98,9 @@ easy_admin:
                     - title
                     - content
                     - created_at
-                    - created_by
+                    - created_user_id
                     - update_at
-                    - update_by
+                    - update_user_id
             form:
                 fields:
                     - title
