@@ -31,4 +31,16 @@ class AdminController extends BaseAdminController
     {
         $this->get('fos_user.user_manager')->updateUser($user, false);
     }
+    
+    public function prePersistPostEntity($post)
+    {
+        $post->setCreatedUser($this->get('security.token_storage')->getToken()->getUser());
+    }
+    
+    public function preUpdatePostEntity($post)
+    {
+        $post->setUpdatedUser($this->get('security.token_storage')->getToken()->getUser());
+        $post->setUpdatedAt(new \DateTime());
+    }
+    
 }

@@ -90,13 +90,17 @@ easy_admin:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
                     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
         Post:
+            
+            controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\Post
             list:
                 fields:
-                    - id
                     - title
                     - content
+                    - created_at
+                    - created_by
                     - update_at
+                    - update_by
             form:
                 fields:
                     - title

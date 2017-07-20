@@ -7,14 +7,15 @@
  */
 
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="post")
  */
-class Post
-{
+class Post {
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -23,53 +24,51 @@ class Post
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=1000, nullable=false)
      */
     private $title;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @ORM\Column(type="text", nullable=false)
      */
     private $content;
-    
+
     /**
      * @var datetime $createdAt
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=false)
      */
     private $createdAt;
-    
+
     /**
      * @var datetime $updatedAt
      *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;
-    
+
     /**
-     * @var datetime $createdUser
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="created_user_id", type="datetime", nullable=false)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="created_user_id", referencedColumnName="id")
      */
     private $createdUser;
-    
+
     /**
-     * @var datetime $updatedUser
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\Column(name="updated_user_id", type="datetime", nullable=false)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="updated_user_id", referencedColumnName="id")
      */
     private $updatedUser;
-    
+
+    public function __construct() {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -79,8 +78,7 @@ class Post
      * @param string $title
      * @return Post
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -91,8 +89,7 @@ class Post
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -102,8 +99,7 @@ class Post
      * @param string $content
      * @return Post
      */
-    public function setContent($content)
-    {
+    public function setContent($content) {
         $this->content = $content;
 
         return $this;
@@ -114,8 +110,7 @@ class Post
      *
      * @return string 
      */
-    public function getContent()
-    {
+    public function getContent() {
         return $this->content;
     }
 
@@ -125,8 +120,7 @@ class Post
      * @param \DateTime $createdAt
      * @return Post
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -137,8 +131,7 @@ class Post
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -148,8 +141,7 @@ class Post
      * @param \DateTime $updatedAt
      * @return Post
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -160,19 +152,17 @@ class Post
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
     /**
      * Set createdUser
      *
-     * @param \DateTime $createdUser
+     * @param \AppBundle\Entity\User $createdUser
      * @return Post
      */
-    public function setCreatedUser($createdUser)
-    {
+    public function setCreatedUser(\AppBundle\Entity\User $createdUser = null) {
         $this->createdUser = $createdUser;
 
         return $this;
@@ -181,21 +171,19 @@ class Post
     /**
      * Get createdUser
      *
-     * @return \DateTime 
+     * @return \AppBundle\Entity\User 
      */
-    public function getCreatedUser()
-    {
+    public function getCreatedUser() {
         return $this->createdUser;
     }
 
     /**
      * Set updatedUser
      *
-     * @param \DateTime $updatedUser
+     * @param \AppBundle\Entity\User $updatedUser
      * @return Post
      */
-    public function setUpdatedUser($updatedUser)
-    {
+    public function setUpdatedUser(\AppBundle\Entity\User $updatedUser = null) {
         $this->updatedUser = $updatedUser;
 
         return $this;
@@ -204,10 +192,10 @@ class Post
     /**
      * Get updatedUser
      *
-     * @return \DateTime 
+     * @return \AppBundle\Entity\User 
      */
-    public function getUpdatedUser()
-    {
+    public function getUpdatedUser() {
         return $this->updatedUser;
     }
+
 }
