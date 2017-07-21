@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.news_images: /uploads/images/news
 
 framework:
     #esi: ~
@@ -69,6 +70,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\User
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_images:
+            uri_prefix: '%app.path.news_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/news'
     
 easy_admin:
     entities:
@@ -78,6 +86,12 @@ easy_admin:
             controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\User
             list:
+                fields:
+                    - id
+                    - username
+                    - email
+                    - locked
+            show:
                 fields:
                     - id
                     - username
@@ -94,16 +108,28 @@ easy_admin:
             controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\Post
             list:
+                actions: ['show', 'edit', 'delete']
                 fields:
                     - title
                     - content
-                    - created_at
-                    - created_user_id
-                    - update_at
-                    - update_user_id
+                    - { property: 'image', type: 'image', base_path: '%app.path.news_images%' }
+                    - createdAt
+                    - createdUser
+                    - updatedAt
+                    - updatedUser
+            show:
+                fields:
+                    - title
+                    - content
+                    - { property: 'image', type: 'image', base_path: '%app.path.news_images%' }
+                    - createdAt
+                    - createdUser
+                    - updatedAt
+                    - updatedUser
             form:
                 fields:
                     - title
-                    - content
+                    - { property: 'content', type: 'ckeditor' }
+                    - { property: 'imageFile', type: 'file' }
                     
         
