@@ -7,6 +7,7 @@
  */
 
 namespace AppBundle\Entity;
+
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
@@ -34,18 +35,12 @@ class Post {
      * @ORM\Column(type="text", nullable=false)
      */
     private $content;
-    
+
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="post", cascade={"persist","remove"}, orphanRemoval=true)
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $image;
-    
-    /**
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
-     * @var File
-     */
-    private $imageFile;
+    protected $images;
 
     /**
      * @var datetime $createdAt
@@ -75,6 +70,8 @@ class Post {
 
     public function __construct() {
         $this->createdAt = new \DateTime();
+
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -126,34 +123,6 @@ class Post {
      */
     public function getContent() {
         return $this->content;
-    }
-    
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-        // VERY IMPORTANT:
-        // It is required that at least one field changes if you are using Doctrine,
-        // otherwise the event listeners won't be called and the file is lost
-//        if ($image) {
-//            // if 'updatedAt' is not defined in your entity, use another property
-//            $this->updatedAt = new \DateTime('now');
-//        }
-    }
-
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-    
-    public function setImage($image)
-    {
-        $this->image = $image;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
     }
 
     /**
@@ -238,6 +207,51 @@ class Post {
      */
     public function getUpdatedUser() {
         return $this->updatedUser;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Product
+     */
+    public function addImage(Image $image) {
+        $this->images[] = $image;
+        $image->setProduct($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove images.
+     *
+     * @param \AppBundle\Entity\Image $images
+     */
+    public function removeImage(Image $images) {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImages() {
+        return $this->images;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Product
+     */
+    public function setName($name) {
+        $this->name = $name;
+
+        return $this;
     }
 
 }

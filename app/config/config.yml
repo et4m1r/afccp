@@ -7,7 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app.path.news_images: /uploads/images/news
+    app.path.post_images: /uploads/images/post
 
 framework:
     #esi: ~
@@ -75,8 +75,8 @@ vich_uploader:
     db_driver: orm
     mappings:
         product_images:
-            uri_prefix: '%app.path.news_images%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/news'
+            uri_prefix: '%app.path.post_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/post'
     
 easy_admin:
     entities:
@@ -112,7 +112,7 @@ easy_admin:
                 fields:
                     - title
                     - content
-                    - { property: 'image', type: 'image', base_path: '%app.path.news_images%' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.post_images%' }
                     - createdAt
                     - createdUser
                     - updatedAt
@@ -121,7 +121,7 @@ easy_admin:
                 fields:
                     - title
                     - content
-                    - { property: 'image', type: 'image', base_path: '%app.path.news_images%' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.post_images%' }
                     - createdAt
                     - createdUser
                     - updatedAt
@@ -130,6 +130,6 @@ easy_admin:
                 fields:
                     - title
                     - { property: 'content', type: 'ckeditor' }
-                    - { property: 'imageFile', type: 'file' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false }}
                     
         
