@@ -130,6 +130,6 @@ easy_admin:
                 fields:
                     - title
                     - { property: 'content', type: 'ckeditor' }
-                    - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false }}
+                    - [{ property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType' }}]
                     
         

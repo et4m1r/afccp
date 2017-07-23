@@ -10,6 +10,7 @@ namespace AppBundle\Entity;
 
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,10 +38,15 @@ class Post {
     private $content;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="post", cascade={"persist","remove"}, orphanRemoval=true)
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Image[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
+     * @ORM\JoinTable(name="owner_images",
+     *      joinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
+     * )
      */
-    protected $images;
+    private $images;
 
     /**
      * @var datetime $createdAt
@@ -226,18 +232,19 @@ class Post {
     /**
      * Remove images.
      *
-     * @param \AppBundle\Entity\Image $images
+     * @param \AppBundle\Entity\Image $image
      */
-    public function removeImage(Image $images) {
-        $this->images->removeElement($images);
+    public function removeImage(Image $image) {
+        $this->images->removeElement($image);
     }
 
     /**
-     * Get images.
+     * Get images
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Image[]|ArrayCollection
      */
-    public function getImages() {
+    public function getImages()
+    {
         return $this->images;
     }
 

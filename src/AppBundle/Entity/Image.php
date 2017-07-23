@@ -2,38 +2,20 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Image
  *
- * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Image")
+ * @ORM\Table()
+ * @ORM\Entity()
  * @Vich\Uploadable
  */
 class Image
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Post", inversedBy="image")
-     * @ORM\JoinColumn(nullable=false, referencedColumnName="id")
-     */
-    protected $post;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
-     */
-    protected $file_name;
-
-    /**
-     * @Vich\UploadableField(mapping="post_images", fileNameProperty="file_name")
-     * @var File $image
-     */
-    protected $image;
-
     /**
      * @var int
      *
@@ -41,10 +23,39 @@ class Image
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
-     * Get id.
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @var File
+     *
+     * @Vich\UploadableField(mapping="images", fileNameProperty="image")
+     */
+    private $imageFile;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(type="datetime", length=255)
+     */
+    private $updatedAt;
+
+
+    /**
+     * Get id
      *
      * @return int
      */
@@ -54,71 +65,68 @@ class Image
     }
 
     /**
-     * Set product.
+     * Set name
      *
-     * @param \AppBundle\Entity\Post $post
+     * @param string $name
      *
      * @return Image
      */
-    public function setPost(Post $post)
+    public function setName($name)
     {
-        $this->post = $post;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get product.
+     * Get name
      *
-     * @return \AppBundle\Entity\Post
+     * @return string
      */
-    public function getPost()
+    public function getName()
     {
-        return $this->post;
+        return $this->name;
     }
 
     /**
-     * Set Image
-     *
-     * @param File $image
-     *
-     * @return $this
+     * @param File|null $image
+     * @return Image
      */
-    public function setImage(File $image)
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $image
+     * @return Image
+     */
+    public function setImage($image)
     {
         $this->image = $image;
+
         return $this;
     }
 
     /**
-     * Get Image
-     *
-     * @return File
+     * @return string
      */
     public function getImage()
     {
         return $this->image;
-    }
-
-    /**
-     * Set FileName
-     *
-     * @param $file_name
-     *
-     * @return $this
-     */
-    public function setFileName($file_name){
-        $this->file_name = $file_name;
-
-        return $this;
-    }
-
-    /**
-     * Get FileName
-     *
-     * @return string
-     */
-    public function getFileName(){
-        return $this->file_name;
     }
 }
