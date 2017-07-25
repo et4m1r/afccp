@@ -9,6 +9,7 @@ use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ImageType extends AbstractType
 {
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -16,9 +17,9 @@ class ImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('imageFile', VichFileType::class)
-        ;
+                ->add('imageFile', VichFileType::class);
+        
+        dump($builder);
     }
 
     /**
@@ -30,4 +31,10 @@ class ImageType extends AbstractType
             'data_class' => 'AppBundle\Entity\Image'
         ));
     }
+    
+    public function getName()
+    {
+        return 'image';
+    }
+
 }

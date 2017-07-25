@@ -16,6 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Image
 {
+
     /**
      * @var int
      *
@@ -28,13 +29,6 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=255)
      */
     private $image;
@@ -42,7 +36,7 @@ class Image
     /**
      * @var File
      *
-     * @Vich\UploadableField(mapping="images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      */
     private $imageFile;
 
@@ -53,11 +47,16 @@ class Image
      */
     private $updatedAt;
 
+    /**
+     * @var Post
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="images")
+     */
+    private $post;
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer 
      */
     public function getId()
     {
@@ -68,7 +67,6 @@ class Image
      * Set name
      *
      * @param string $name
-     *
      * @return Image
      */
     public function setName($name)
@@ -81,7 +79,7 @@ class Image
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
@@ -112,6 +110,8 @@ class Image
     }
 
     /**
+     * Set image
+     *
      * @param string $image
      * @return Image
      */
@@ -123,10 +123,60 @@ class Image
     }
 
     /**
-     * @return string
+     * Get image
+     *
+     * @return string 
      */
     public function getImage()
     {
         return $this->image;
     }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Image
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set post
+     *
+     * @param Post $post
+     *
+     * @return Image
+     */
+    public function setPost(Post $post = null)
+    {
+        $this->post = $post;
+
+        return $this;
+    }
+
+    /**
+     * Get post
+     *
+     * @return Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
 }

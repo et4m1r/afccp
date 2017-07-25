@@ -77,6 +77,8 @@ vich_uploader:
         product_images:
             uri_prefix: '%app.path.post_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/post'
+            delete_on_update:   true
+            delete_on_remove:   true
     
 easy_admin:
     entities:
@@ -107,29 +109,10 @@ easy_admin:
         Post:
             controller: AppBundle\Controller\AdminController
             class: AppBundle\Entity\Post
-            list:
-                actions: ['show', 'edit', 'delete']
-                fields:
-                    - title
-                    - content
-                    - { property: 'image', type: 'image', base_path: '%app.path.post_images%' }
-                    - createdAt
-                    - createdUser
-                    - updatedAt
-                    - updatedUser
-            show:
-                fields:
-                    - title
-                    - content
-                    - { property: 'image', type: 'image', base_path: '%app.path.post_images%' }
-                    - createdAt
-                    - createdUser
-                    - updatedAt
-                    - updatedUser
             form:
                 fields:
                     - title
-                    - { property: 'content', type: 'ckeditor' }
-                    - [{ property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType' }}]
+                    - { property: 'content', type: 'ckeditor'}
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false}}
                     
         

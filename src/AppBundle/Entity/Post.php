@@ -18,7 +18,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @Vich\Uploadable
  * @ORM\Table(name="post")
  */
-class Post {
+class Post
+{
 
     /**
      * @ORM\Column(type="integer")
@@ -36,17 +37,6 @@ class Post {
      * @ORM\Column(type="text", nullable=false)
      */
     private $content;
-
-    /**
-     * @var Image[]|ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Image", cascade={"persist"})
-     * @ORM\JoinTable(name="owner_images",
-     *      joinColumns={@ORM\JoinColumn(name="owner_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="image_id", referencedColumnName="id", unique=true)}
-     * )
-     */
-    private $images;
 
     /**
      * @var datetime $createdAt
@@ -74,9 +64,16 @@ class Post {
      */
     private $updatedUser;
 
-    public function __construct() {
-        $this->createdAt = new \DateTime();
+     /**
+     * @var Image[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="post", cascade={"persist", "remove"}, orphanRemoval=true)
+     */
+    private $images;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
         $this->images = new ArrayCollection();
     }
 
@@ -85,7 +82,8 @@ class Post {
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -95,7 +93,8 @@ class Post {
      * @param string $title
      * @return Post
      */
-    public function setTitle($title) {
+    public function setTitle($title)
+    {
         $this->title = $title;
 
         return $this;
@@ -106,7 +105,8 @@ class Post {
      *
      * @return string 
      */
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
@@ -116,7 +116,8 @@ class Post {
      * @param string $content
      * @return Post
      */
-    public function setContent($content) {
+    public function setContent($content)
+    {
         $this->content = $content;
 
         return $this;
@@ -127,7 +128,8 @@ class Post {
      *
      * @return string 
      */
-    public function getContent() {
+    public function getContent()
+    {
         return $this->content;
     }
 
@@ -137,7 +139,8 @@ class Post {
      * @param \DateTime $createdAt
      * @return Post
      */
-    public function setCreatedAt($createdAt) {
+    public function setCreatedAt($createdAt)
+    {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -148,7 +151,8 @@ class Post {
      *
      * @return \DateTime 
      */
-    public function getCreatedAt() {
+    public function getCreatedAt()
+    {
         return $this->createdAt;
     }
 
@@ -158,7 +162,8 @@ class Post {
      * @param \DateTime $updatedAt
      * @return Post
      */
-    public function setUpdatedAt($updatedAt) {
+    public function setUpdatedAt($updatedAt)
+    {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -169,7 +174,8 @@ class Post {
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt() {
+    public function getUpdatedAt()
+    {
         return $this->updatedAt;
     }
 
@@ -179,7 +185,8 @@ class Post {
      * @param \AppBundle\Entity\User $createdUser
      * @return Post
      */
-    public function setCreatedUser(\AppBundle\Entity\User $createdUser = null) {
+    public function setCreatedUser(\AppBundle\Entity\User $createdUser = null)
+    {
         $this->createdUser = $createdUser;
 
         return $this;
@@ -190,7 +197,8 @@ class Post {
      *
      * @return \AppBundle\Entity\User 
      */
-    public function getCreatedUser() {
+    public function getCreatedUser()
+    {
         return $this->createdUser;
     }
 
@@ -200,7 +208,8 @@ class Post {
      * @param \AppBundle\Entity\User $updatedUser
      * @return Post
      */
-    public function setUpdatedUser(\AppBundle\Entity\User $updatedUser = null) {
+    public function setUpdatedUser(\AppBundle\Entity\User $updatedUser = null)
+    {
         $this->updatedUser = $updatedUser;
 
         return $this;
@@ -211,33 +220,11 @@ class Post {
      *
      * @return \AppBundle\Entity\User 
      */
-    public function getUpdatedUser() {
+    public function getUpdatedUser()
+    {
         return $this->updatedUser;
     }
-
-    /**
-     * Add images
-     *
-     * @param \AppBundle\Entity\Image $image
-     *
-     * @return Product
-     */
-    public function addImage(Image $image) {
-        $this->images[] = $image;
-        $image->setProduct($this);
-
-        return $this;
-    }
-
-    /**
-     * Remove images.
-     *
-     * @param \AppBundle\Entity\Image $image
-     */
-    public function removeImage(Image $image) {
-        $this->images->removeElement($image);
-    }
-
+    
     /**
      * Get images
      *
@@ -247,18 +234,33 @@ class Post {
     {
         return $this->images;
     }
-
+    
     /**
-     * Set name
+     * Add image
      *
-     * @param string $name
+     * @param Image $image
      *
-     * @return Product
+     * @return Post
      */
-    public function setName($name) {
-        $this->name = $name;
+    public function addImage(Image $image)
+    {
+        $image->setPost($this);
+        $this->images[] = $image;
+
+        dump($image);
 
         return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param Image $image
+     */
+    public function removeImage(Image $image)
+    {
+        $image->setPost(null); 
+        $this->images->removeElement($image);
     }
 
 }
