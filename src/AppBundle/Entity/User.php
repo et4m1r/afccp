@@ -20,9 +20,14 @@ class User extends BaseUser
     protected $id;
     
     /**
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="createdUser")
      */
-     private $posts;
+    private $createdPosts;
+
+     /**
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="updatedUser")
+     */
+    private $updatedPosts;
 
     public function __construct()
     {
@@ -56,10 +61,76 @@ class User extends BaseUser
     /**
      * Get posts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Add createdPosts
+     *
+     * @param \AppBundle\Entity\Post $createdPosts
+     * @return User
+     */
+    public function addCreatedPost(\AppBundle\Entity\Post $createdPosts)
+    {
+        $this->createdPosts[] = $createdPosts;
+
+        return $this;
+    }
+
+    /**
+     * Remove createdPosts
+     *
+     * @param \AppBundle\Entity\Post $createdPosts
+     */
+    public function removeCreatedPost(\AppBundle\Entity\Post $createdPosts)
+    {
+        $this->createdPosts->removeElement($createdPosts);
+    }
+
+    /**
+     * Get createdPosts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCreatedPosts()
+    {
+        return $this->createdPosts;
+    }
+
+    /**
+     * Add updatedPosts
+     *
+     * @param \AppBundle\Entity\Post $updatedPosts
+     * @return User
+     */
+    public function addUpdatedPost(\AppBundle\Entity\Post $updatedPosts)
+    {
+        $this->updatedPosts[] = $updatedPosts;
+
+        return $this;
+    }
+
+    /**
+     * Remove updatedPosts
+     *
+     * @param \AppBundle\Entity\Post $updatedPosts
+     */
+    public function removeUpdatedPost(\AppBundle\Entity\Post $updatedPosts)
+    {
+        $this->updatedPosts->removeElement($updatedPosts);
+    }
+
+    /**
+     * Get updatedPosts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUpdatedPosts()
+    {
+        return $this->updatedPosts;
     }
 }

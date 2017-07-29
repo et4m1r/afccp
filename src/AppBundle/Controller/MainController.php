@@ -18,4 +18,15 @@ class MainController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }
+
+    /**
+     * @Route("/greeting", name="greetingpage")
+     */
+    public function greetingPageAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('pages/greeting.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ));
+    }
 }

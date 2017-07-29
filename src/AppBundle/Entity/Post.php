@@ -53,13 +53,13 @@ class Post
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="createdPosts")
      * @ORM\JoinColumn(name="created_user_id", referencedColumnName="id")
      */
     private $createdUser;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="updatedPosts")
      * @ORM\JoinColumn(name="updated_user_id", referencedColumnName="id")
      */
     private $updatedUser;

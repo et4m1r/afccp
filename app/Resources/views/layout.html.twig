@@ -8,77 +8,68 @@
     {% endblock %}
 {% endblock %} 
 {% block body %}
-    <div class="affix-header" style="height:200px;">
-        <div class="affix-content">
-            <img class="affix-logo" src="{{ asset('assets/image/logo/logo.png') }}" alt="logo">
-            <h3 class="affix-title">THE AUTHORITY FOR FAIR<br>
-                COMPETITION AND CONSUMER PROTECTION</h3>
-        </div>
-        <div class="affix-bg">
-        </div>
+   <div class="affix-header" style="height:200px;">
+	<div class="affix-content"> <img class="affix-logo" src="{{ asset('assets/image/logo/logo.png') }}" alt="logo">
+		<h3 class="affix-title">THE AUTHORITY FOR FAIR<br>
+                COMPETITION AND CONSUMER PROTECTION</h3> </div>
+	<div class="affix-bg"> </div>
     </div>
     <nav class="navbar navbar-default" data-spy="affix" data-offset-top="200">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="affix-logo navbar-brand" href="#"><img src="{{ asset('assets/image/logo/logo.png') }}" alt="logo"></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="affix-logo navbar-brand" href="#"><img src="{{ asset('assets/image/logo/logo.png') }}" alt="logo"> </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Бидний тухай<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Мэдээлэл</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хууль эрхзүй<span class="caret"></span></a>
+                <li class="active"><a href="#">Нүүр хуудас<span class="sr-only">(current)</span></a> </li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Бидний тухай<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Хууль эрхзүй</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="{{path('greetingpage')}}">Мэндчилгээ</a> </li>
+                        <li><a href="#">Зорилго зорилт</a> </li>
+                        <li><a href="#">Бүтэц</a> </li>
+                        <li><a href="#">Түүхэн замнал</a> </li>
+                        <li><a href="#">Эрхзүйн байдал</a> </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ил тод байдал<span class="caret"></span></a>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Үйл ажиллагаа<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Хууль эрхзүй</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">ШӨХТГ-ын хуралдаан</a> </li>
+                        <li><a href="#">Өргөдөл гомдол</a> </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Хөтөлбөр</a> </li>
+                        <li><a href="#">Төсөл</a> </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Орон нутаг<span class="caret"></span></a>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Мэдээ мэдээлэл<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Хууль эрхзүй</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Цаг үе, үйл явдал</a> </li>
+                        <li><a href="#">Илтгэл</a> </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хэрэглэгчийн булан<span class="caret"></span></a>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хяналт шинжилгээ<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Хууль эрхзүй</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Төлөвлөгөө</a> </li>
+                        <li><a href="#">Мэдээлэл</a> </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Өргөдөл,гомдол<span class="caret"></span></a>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Хууль эрхзүй<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Хууль эрхзүй</a></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">Албаны дүрэм</a> </li>
+                        <li><a href="#">Журам</a> </li>
+                        <li><a href="#">Тогтоол шийдвэр</a> </li>
+                        <li><a href="#">Удирдамж</a> </li>
+                        <li><a href="#">Бодлогын баримт бичиг</a> </li>
+                    </ul>
+                </li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ил тод байдал<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Үйл ажиллагаа</a> </li>
+                        <li><a href="#">Хүний нөөц</a> </li>
+                        <li><a href="#">Төсөв, санхүү</a> </li>
+                        <li><a href="#">Худалдан авалт</a> </li>
+                        <li><a href="#">Ил тод байдал</a> </li>
                     </ul>
                 </li>
             </ul>
@@ -110,11 +101,11 @@
                 <div class="col-md-3 col-sm-6 footer-col">
                     <h6 class="heading7">GENERAL LINKS</h6>
                     <ul class="footer-ul">
-                        <li><a href="#"> Career</a></li>
-                        <li><a href="#"> Privacy Policy</a></li>
-                        <li><a href="#"> Terms & Conditions</a></li>
-                        <li><a href="#"> Client Gateway</a></li>
-                        <li><a href="#"> Ranking</a></li>
+                        <li><a href="#"> Холбоо барих</a></li>
+                        <li><a href="#"> Хэрэглэгчийн булан</a></li>
+                        <li><a href="#"> Сургалт</a></li>
+                        <li><a href="#"> ШӨХТГ сэтгүүл</a></li>
+                        <li><a href="#"> Орон нутаг</a></li>
                         <li><a href="#"> Case Studies</a></li>
                         <li><a href="#"> Frequently Ask Questions</a></li>
                     </ul>
