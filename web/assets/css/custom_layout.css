@@ -17,6 +17,7 @@ body {
     background: #f9f9f9 url("/assets/image/picture/bg-opacity15.png") no-repeat 105% 50px;
     background-attachment: fixed;
 }
+
 /*affix header*/
 .affix {
     top: 0;
