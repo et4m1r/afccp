@@ -74,7 +74,7 @@ and open the template in the editor.
     background-image: url("/assets/image/slider/healthier-tn-bb.jpg");
 }
 /*news article*/
-article.style1 {
+article.homenews {
     position: relative;
     height: auto;
     min-height: 150px;
@@ -96,14 +96,14 @@ article img {
 article img.show {
     opacity: 1;
 }
-article.style1:hover img {
+article.homenews:hover img {
     margin: 0 0 0 0%;
     -webkit-transform: scale(1.15);
     transform: scale(1.15);
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
 }
-article.style1 .date {
+article.homenews .date {
     position: absolute;
     z-index: 3;
     left: 0;
@@ -115,7 +115,7 @@ article.style1 .date {
     color: #fff;
     padding: 3px;
 }
-article.style1 .content {
+article.homenews .content {
     position: absolute;
     height: auto;
     width: 100%;
@@ -123,7 +123,7 @@ article.style1 .content {
     left: 0;
     z-index: 4;
 }
-article.style1 .title {
+article.homenews .title {
     bottom: 0;
     left: 0;
     width: 100%;
@@ -137,10 +137,10 @@ article.style1 .title {
     -webkit-transition: background .4s ease-in-out;
     transition: background .4s ease-in-out;
 }
-article.style1:hover .title {
+article.homenews:hover .title {
     background: rgba(68, 92, 124, 1);
 }
-article.style1 .info {
+article.homenews .info {
     bottom: 0;
     left: 0;
     width: 100%;
@@ -151,14 +151,14 @@ article.style1 .info {
     -webkit-transition: max-height .3s ease-in-out, color .4s ease-in-out;
     transition: max-height .3s ease-in-out, color .4s ease-in-out;
 }
-article.style1 .info p {
+article.homenews .info p {
     padding: 5px;
     font-family: sans-serif;
     font-style: normal;
     font-size: 12px;
     color: #fff;
 }
-article.style1:hover .info {
+article.homenews:hover .info {
     max-height: 75px;
     color: #fff;
 }
@@ -171,9 +171,12 @@ article.style1:hover .info {
     line-height: 1;
     letter-spacing: -1px;
 }
+.ourservice-image{
+    width: 100%;
+}
 @media (min-width: 768px) {
     .ourservice-heading {
-        font-size: 50px;
+        font-size: 35px;
     }
 }
 @media (min-width: 992px) {

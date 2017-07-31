@@ -189,12 +189,7 @@ footer {
 .footer-col {
     margin-top: 50px;
 }
-.logofooter {
-    margin-bottom: 10px;
-    font-size: 25px;
-    color: #fff;
-    font-weight: 700;
-}
+
 .footer-col p {
     color: #fff;
     font-size: 12px;
@@ -215,7 +210,7 @@ footer {
     font-size: 12px;
 }
 .footer-ul li a {
-    color: #a0a3a4;
+    color: #fff;
     transition: color 0.2s linear 0s, background 0.2s linear 0s;
 }
 .footer-ul i {
@@ -238,7 +233,7 @@ footer {
 .heading7 {
     font-size: 21px;
     font-weight: 700;
-    color: #d9d6d6;
+    color: #fff;
     margin-bottom: 22px;
 }
 .post p {
