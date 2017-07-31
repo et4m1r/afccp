@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %} 
 {% block pagecss %}
     <link rel="stylesheet" href="{{ asset('assets/css/custom_content.css') }}">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 {% endblock %}
 {% block content %}
     <div class="container mt15">
@@ -9,12 +8,51 @@
             <div class="col-md-9">
                 Мэндчилгээ
             </div>
-            <div class="hidden-xs hidden-sm col-md-3">
+            <div class="hidden-xs hidden-sm col-md-3 mb15">
+                <div class="newsfeed mb15">
+                    <div class="row news">
+                        <img class="col-md-5" src="https://www.cuw.edu/_files/images/test.JPG">
+                        <div class="col-md-7">
+                            <a href="#">
+                                Д.Алимаа: Шүүхээр үйлчлүүлснээс эвлэрүүлэн зуучлалаар асуудлаа шийдүүлэх нь хялбар
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row news">
+                        <img class="col-md-5"src="https://www.cuw.edu/_files/images/test.JPG">
+                        <div class="col-md-7">
+                            <a href="#">
+                                Шүүхээр үйлчлүүлснээс эвлэрүүлэн зуучлалаар асуудлаа шийдүүлэх нь хялбар
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row news">
+                        <img class="col-md-5" src="https://www.cuw.edu/_files/images/test.JPG">
+                        <div class="col-md-7">
+                            <a href="#">
+                                Асуудлаа шийдүүлэх нь хялбар
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row news">
+                        <img class="col-md-5" src="https://www.cuw.edu/_files/images/test.JPG">
+                        <div class="col-md-7">
+                            <a href="#">
+                                Д.Алимаа: Шүүхээр үйлчлүүлснээс эвлэрүүлэн зуучлалаар асуудлаа шийдүүлэх нь хялбар
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9 mb15">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+                </div>
                 <div id="calendar"></div>
+
             </div>
         </div>
     </div>
 {% endblock %}
 {% block pagejs %}
+    <script src="{{ asset('assets/vendor/moment/min/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom_content.js') }}"></script>
 {% endblock %}
