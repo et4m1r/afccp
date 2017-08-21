@@ -50,3 +50,7 @@
 
 #netbeans specific
 nbproject/*
+
+
+.DS_Store
+
