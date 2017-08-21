@@ -10,8 +10,9 @@
 {% block body %}
     <div class="affix-header" style="height:200px;">
         <div class="affix-content"> <img class="affix-logo" src="{{ asset('assets/image/logo/logo-big.png') }}" alt="logo">
-            <h3 class="affix-title">THE AUTHORITY FOR FAIR<br>
-                COMPETITION AND CONSUMER PROTECTION</h3> </div>
+            <h7 class="affix-title-top">ЗАСГИЙН ГАЗРЫН ТОХИРУУЛАГЧ АГЕНТЛАГ</h7> 
+            <h2 class="affix-title-bot">ШУДАРГА ӨРСӨЛДӨӨН<br> ХЭРЭГЛЭГЧИЙН ТӨЛӨӨ ГАЗАР</h2> 
+        </div>
         <div class="affix-bg"> </div>
     </div>
     <nav class="navbar navbar-default" data-spy="affix" data-offset-top="200">
@@ -44,7 +45,7 @@
                 </li>
                 <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Мэдээ мэдээлэл<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Цаг үе, үйл явдал</a> </li>
+                        <li><a href="{{path('newspage')}}">Цаг үе, үйл явдал</a> </li>
                         <li><a href="#">Илтгэл</a> </li>
                     </ul>
                 </li>

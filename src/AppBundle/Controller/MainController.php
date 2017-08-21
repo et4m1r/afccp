@@ -35,6 +35,16 @@ class MainController extends Controller {
     }
 
     /**
+     * @Route("/news", name="newspage")
+     */
+    public function newsPageAction() {
+        // replace this example code with whatever you need
+        return $this->render('pages/news.html.twig', array(
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
+        ));
+    }
+
+    /**
      * @Route("/contactus", name="contactuspage")
      */
     public function createAction(Request $request) {

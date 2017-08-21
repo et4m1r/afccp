@@ -516,3 +516,12 @@
 {
     background-color: #545454;
 }
+
+/* page header */
+
+.pageheader{
+    border-top: 1px #EEEEEE solid;
+    border-bottom: 1px #EEEEEE solid;
+    padding: 15px;
+    margin-bottom: 15px;
+}

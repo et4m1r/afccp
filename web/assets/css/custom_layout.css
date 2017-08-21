@@ -8,12 +8,12 @@ and open the template in the editor.
     Author     : et4m1r
 */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 /* Note: Try to remove the following lines to see the effect of CSS positioning */
 
 body {
-    font-family: 'Open Sans', serif !important;
+    font-family: 'Roboto', sans-serif;
     background: #f9f9f9 url("/assets/image/picture/bg-opacity15.png") no-repeat 105% 50px;
     background-attachment: fixed;
 }
@@ -60,13 +60,23 @@ body {
     position: absolute;
     z-index: 1;
 }
-.affix-header .affix-content .affix-title {
+.affix-title-top{
     left: 200px;
-    top: 70px;
+    top: 80px;
     width: 500px;
     position: absolute;
     color: #fff;
     z-index: 1;
+    font-weight: 200;
+}
+.affix-title-bot{
+    left: 200px;
+    top: 80px;
+    width: 500px;
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    font-weight: 200;
 }
 /*navbar customization*/
 .navbar {
@@ -184,7 +194,6 @@ li {
 footer {
     background-color: #445c7c;
     min-height: 350px;
-    font-family: 'Open Sans', sans-serif;
 }
 .footer-col {
     margin-top: 50px;
@@ -193,7 +202,6 @@ footer {
 .footer-col p {
     color: #fff;
     font-size: 12px;
-    font-family: 'Open Sans', sans-serif;
     margin-bottom: 15px;
 }
 .footer-col p i {
