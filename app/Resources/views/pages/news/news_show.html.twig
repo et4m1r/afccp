@@ -10,10 +10,22 @@
             <div class="col-md-9">
                 {% embed 'pages/parts/page_header.html.twig' %}
                     {% block pageheader %}
-                         Мэдээ мэдээлэл / Цаг үе үйл явдал
+                        <ul class="breadcrumb">
+                            <li><a href="#">Мэдээ мэдээлэл</a></li>
+                            <li><a href="#">Цаг үе үйл явдал</a></li>
+                        </ul>
                     {% endblock %}
                 {% endembed %}
                 <div class="row">
+                    <h2>{{post[0].title}}</h2>
+                    <p>{{post[0].createdAt|date("Y-m-d H:i")}}</p>
+                    <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{post[0].images[0].image}}">
+
+                    {{post[0].content | raw}}
+
+                    {% for img in post[0].images %}
+                        <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{img.image}}">
+                    {% endfor %}
                 </div>
             </div>
             {% include 'pages/parts/left_sidebar.html.twig' %}

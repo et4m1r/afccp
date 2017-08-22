@@ -17,7 +17,10 @@
             <div class="col-md-9">
                 {% embed 'pages/parts/page_header.html.twig' %}
                     {% block pageheader %}
-                         Мэдээ мэдээлэл / Цаг үе үйл явдал
+                        <ul class="breadcrumb">
+                            <li><a href="#">Бидний тухай</a></li>
+                            <li><a href="#">Мэндчилгээ</a></li>
+                        </ul>
                     {% endblock %}
                 {% endembed %}
                 <div class="row">

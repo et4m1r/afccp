@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %} 
+{% block pagecss %}
+    <link rel="stylesheet" href="{{ asset('assets/css/custom_content.css') }}">
+    <style>
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container mt15">
+        <div class="row">
+            <div class="col-md-9">
+                {% embed 'pages/parts/page_header.html.twig' %}
+                    {% block pageheader %}
+                        <ul class="breadcrumb">
+                            <li><a href="#">Мэдээ мэдээлэл</a></li>
+                            <li><a href="#">Цаг үе үйл явдал</a></li>
+                        </ul>
+                    {% endblock %}
+                {% endembed %}
+                {% for post in posts %}
+                    <div class="row">
+                        <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
+                        <h2>{{post.title}}</h2>
+                        <p>{{post.createdAt|date("Y-m-d H:i")}}</p>
+                        {{post.content | easyadmin_truncate(500, true) | raw}}
+                        <a href="{{path('news_show', { 'id': post.id })}}">Дэлгэрэнгүй</a>
+                    </div>
+                {% endfor %}
+
+                {% if maxPages > 1 %}
+                    <ul class="pagination pagination-sm">
+                        {# `«` arrow  #}
+                        <li {{ thisPage == 1 ? 'class="disabled"' }}>
+                            <a href="{{ path('news_list', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+                        </li>
+
+                        {# Render each page number #}
+                        {% for i in 1..maxPages %}
+                            <li {{ thisPage == i ? 'class="active"' }}>
+                                <a href="{{ path('news_list', {page: i}) }}">{{ i }}</a>
+                            </li>
+                        {% endfor %}
+
+                        {# `»` arrow #}
+                        <li {{ thisPage == maxPages ? 'class="disabled"' }}>
+                            <a href="{{ path('news_list', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+                        </li>
+                    </ul>
+                {% endif %}
+
+            </div>
+            {% include 'pages/parts/left_sidebar.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+{% block pagejs %}
+    <script src="{{ asset('assets/vendor/moment/min/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom_content.js') }}"></script>
+{% endblock %}

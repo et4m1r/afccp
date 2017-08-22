@@ -17,8 +17,8 @@ class MainController extends Controller {
     /**
      * @Route("/home", name="homepage")
      */
-    public function indexAction(Request $request) {
-        // replace this example code with whatever you need
+    public function indexAction() {
+
         return $this->render('pages/index.html.twig', array(
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
         ));
@@ -30,16 +30,6 @@ class MainController extends Controller {
     public function greetingPageAction() {
         // replace this example code with whatever you need
         return $this->render('pages/greeting.html.twig', array(
-                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
-        ));
-    }
-
-    /**
-     * @Route("/news", name="newspage")
-     */
-    public function newsPageAction() {
-        // replace this example code with whatever you need
-        return $this->render('pages/news.html.twig', array(
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
         ));
     }
