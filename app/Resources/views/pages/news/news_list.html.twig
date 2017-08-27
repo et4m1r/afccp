@@ -33,7 +33,7 @@
                 {% for post in posts %}
                     <div class="row news-row">
                         {% if post.images|length != 0%}
-                            <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
+                            <img class="col-xs-12 col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
                         {% endif %}
                         <h2 class="mt0">{{post.title}}</h2>
                         <p>{{post.createdAt|date("Y-m-d H:i")}}</p>

@@ -9,6 +9,18 @@
             text-transform: uppercase;
             font-weight: bold;
         }
+
+        .news-row{
+            margin-bottom: 15px;
+        }
+        .news-row h3{
+            margin-top: 0px;
+            padding-left: 12px;
+        }
+        .news-row p{
+            padding-right:15px;
+            padding-left:15px;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -23,7 +35,7 @@
                         </ul>
                     {% endblock %}
                 {% endembed %}
-                <div class="row">
+                <div class="row news-row">
                     <h3>МОНГОЛ УЛСЫН ШАДАР САЙД У.ХҮРЭЛСҮХИЙН МЭНДЧИЛГЭЭ</h3>
                     <img class="portrait col-xs-6" src="{{ asset('assets/image/picture/greeting/portrait.JPG') }}">
                     <p> Хүний эрх, эрх чөлөө, шударга ёс, хууль эрх зүйг дээдэлсэн манай нийгмийн үнэт зүйл, эрхэм дээд баялаг нь хүн юм. Монгол төрийн хүнээ дээдэлсэн  бодлого, эрхэм зорилгыг хэлбэрэлтгүй, тууштай хэрэгжүүлдэг шударга ёсны үнэнч харуулуудын нэг нь Шударга өрсөлдөөн, хэрэглэгчийн төлөө газрын хамт олон юм.
@@ -41,9 +53,9 @@
                     <p>Та бүхэнд амжилт хүсье. </p>
                     <p class="slogan">шударга өрсөлдөөнийг дэмжье<br>Хэрэглэгчийн эрхийг хамгаалъя!</p>
                     <div class="row">
-                        <span class="col-xs-4">Монгол Улсын Шадар сайд</span>
+                        <span class="col-xs-4"><p>Монгол Улсын Шадар сайд</p></span>
                         <span class="col-xs-4"><img class="signature" src="{{ asset('assets/image/picture/greeting/sign.JPG') }}"></span>
-                        <span class="col-xs-4">У.Хүрэлсүх</span>
+                        <span class="col-xs-4"><p>У.Хүрэлсүх</p></span>
                     </div>
                 </div>
             </div>
