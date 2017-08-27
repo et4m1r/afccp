@@ -2,6 +2,17 @@
 {% block pagecss %}
     <link rel="stylesheet" href="{{ asset('assets/css/custom_content.css') }}">
     <style>
+        .news-row h2{
+            padding-right:15px;
+            padding-left:15px;
+        }
+        .news-row p{
+            padding-right:15px;
+            padding-left:15px;
+        }
+        .news-row img{
+            margin-bottom: 15px;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -16,16 +27,23 @@
                         </ul>
                     {% endblock %}
                 {% endembed %}
-                <div class="row">
+                <div class="row news-row">
                     <h2>{{post[0].title}}</h2>
                     <p>{{post[0].createdAt|date("Y-m-d H:i")}}</p>
-                    <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{post[0].images[0].image}}">
+                    {% if post[0].images|length != 0%}
+                        <img class="col-xs-12" src="{{ asset('uploads/images/post/') }}{{post[0].images[0].image}}">
+                        {% set usedId = post[0].images[0].id %}
+                    {% endif %}
 
                     {{post[0].content | raw}}
 
-                    {% for img in post[0].images %}
-                        <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{img.image}}">
-                    {% endfor %}
+                    {% if post[0].images|length > 1%}
+                        {% for img in post[0].images %}
+                            {% if usedId != img.id %}
+                                <img class="col-xs-12" src="{{ asset('uploads/images/post/') }}{{img.image}}">
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             {% include 'pages/parts/left_sidebar.html.twig' %}

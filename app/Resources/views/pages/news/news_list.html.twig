@@ -2,6 +2,20 @@
 {% block pagecss %}
     <link rel="stylesheet" href="{{ asset('assets/css/custom_content.css') }}">
     <style>
+        .news-row{
+            margin-bottom: 15px;
+        }
+        .news-row h2{
+            margin-top: 0px;
+            padding-left: 12px;
+        }
+        .news-row p{
+            padding-right:15px;
+            padding-left:15px;
+        }
+        .pagination{
+            margin-top: 0px !important;
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -17,9 +31,11 @@
                     {% endblock %}
                 {% endembed %}
                 {% for post in posts %}
-                    <div class="row">
-                        <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
-                        <h2>{{post.title}}</h2>
+                    <div class="row news-row">
+                        {% if post.images|length != 0%}
+                            <img class="col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
+                        {% endif %}
+                        <h2 class="mt0">{{post.title}}</h2>
                         <p>{{post.createdAt|date("Y-m-d H:i")}}</p>
                         {{post.content | easyadmin_truncate(500, true) | raw}}
                         <a href="{{path('news_show', { 'id': post.id })}}">Дэлгэрэнгүй</a>
@@ -27,7 +43,7 @@
                 {% endfor %}
 
                 {% if maxPages > 1 %}
-                    <ul class="pagination pagination-sm">
+                    <ul class="pagination">
                         {# `«` arrow  #}
                         <li {{ thisPage == 1 ? 'class="disabled"' }}>
                             <a href="{{ path('news_list', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>

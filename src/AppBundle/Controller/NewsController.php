@@ -21,26 +21,14 @@ class NewsController extends Controller {
     public function newsListAction($page = 1) {
 
         $em = $this->getDoctrine()->getManager();
-        $posts = $this->getAllPosts($page); // Returns 5 posts out of 20
-        // You can also call the count methods (check PHPDoc for `paginate()`)
-        # Total fetched (ie: `5` posts)
+        $posts = $this->getAllPosts($page);
         $totalPostsReturned = $posts->getIterator()->count();
 
-        # Count of ALL posts (ie: `20` posts)
         $totalPosts = $posts->count();
 
-        # ArrayIterator
         $iterator = $posts->getIterator();
 
-
-//        $postData = $em->createQueryBuilder()
-//                ->select('p', 'i')
-//                ->from('AppBundle:Post', 'p')
-//                ->leftJoin('p.images', 'i')
-//                ->getQuery()
-//                ->getResult();
-
-        $limit = 1;
+        $limit = 2;
         $maxPages = ceil($totalPosts / $limit);
         $thisPage = $page;
 
@@ -119,7 +107,7 @@ class NewsController extends Controller {
      *
      * @return \Doctrine\ORM\Tools\Pagination\Paginator
      */
-    public function paginate($dql, $page = 1, $limit = 1) {
+    public function paginate($dql, $page = 1, $limit = 2) {
         $paginator = new Paginator($dql);
 
         $paginator->getQuery()
