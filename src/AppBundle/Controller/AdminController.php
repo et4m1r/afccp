@@ -47,4 +47,13 @@ class AdminController extends BaseAdminController {
         $conference->setUpdatedAt(new \DateTime());
     }
 
+    public function prePersistApplicationEntity($application) {
+        $application->setCreatedUser($this->get('security.token_storage')->getToken()->getUser());
+    }
+
+    public function preUpdateApplicationEntity($application) {
+        $application->setUpdatedUser($this->get('security.token_storage')->getToken()->getUser());
+        $application->setUpdatedAt(new \DateTime());
+    }
+
 }

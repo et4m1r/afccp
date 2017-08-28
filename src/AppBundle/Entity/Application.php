@@ -29,17 +29,17 @@ class Application
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=false)
+     * @ORM\Column(type="string", length=200, nullable=false)
      */
     private $departmentName;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=false)
+     * @ORM\Column(type="string", length=500, nullable=false)
      */
     private $applicantBio;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=false)
+     * @ORM\Column(type="string", length=500, nullable=false)
      */
     private $applicantAddress;
 
@@ -49,7 +49,7 @@ class Application
     private $applicantPhone;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=false)
+     * @ORM\Column(type="string", length=100, nullable=false)
      */
     private $applicantName;
 

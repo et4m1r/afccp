@@ -123,3 +123,16 @@ easy_admin:
                     - title
                     - subject
                     - { property: 'content', type: 'ckeditor'}
+        Application:
+            controller: AppBundle\Controller\AdminController
+            class: AppBundle\Entity\Application
+            form:
+                fields:
+                    - title
+                    - departmentName
+                    - applicantBio	
+                    - applicantAddress	
+                    - applicantPhone
+                    - applicantName	
+                    - { property: 'request', type: 'ckeditor'}
+                    - { property: 'content', type: 'ckeditor'}
