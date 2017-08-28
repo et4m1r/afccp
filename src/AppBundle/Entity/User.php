@@ -28,6 +28,16 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Post", mappedBy="updatedUser")
      */
     private $updatedPosts;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Conference", mappedBy="createdUser")
+     */
+    private $createdConferences;
+
+     /**
+     * @ORM\OneToMany(targetEntity="Conference", mappedBy="updatedUser")
+     */
+    private $updatedConferences;
 
     public function __construct()
     {
@@ -132,5 +142,71 @@ class User extends BaseUser
     public function getUpdatedPosts()
     {
         return $this->updatedPosts;
+    }
+
+    /**
+     * Add createdConferences
+     *
+     * @param \AppBundle\Entity\Conference $createdConferences
+     * @return User
+     */
+    public function addCreatedConference(\AppBundle\Entity\Conference $createdConferences)
+    {
+        $this->createdConferences[] = $createdConferences;
+
+        return $this;
+    }
+
+    /**
+     * Remove createdConferences
+     *
+     * @param \AppBundle\Entity\Conference $createdConferences
+     */
+    public function removeCreatedConference(\AppBundle\Entity\Conference $createdConferences)
+    {
+        $this->createdConferences->removeElement($createdConferences);
+    }
+
+    /**
+     * Get createdConferences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCreatedConferences()
+    {
+        return $this->createdConferences;
+    }
+
+    /**
+     * Add updatedConferences
+     *
+     * @param \AppBundle\Entity\Conference $updatedConferences
+     * @return User
+     */
+    public function addUpdatedConference(\AppBundle\Entity\Conference $updatedConferences)
+    {
+        $this->updatedConferences[] = $updatedConferences;
+
+        return $this;
+    }
+
+    /**
+     * Remove updatedConferences
+     *
+     * @param \AppBundle\Entity\Conference $updatedConferences
+     */
+    public function removeUpdatedConference(\AppBundle\Entity\Conference $updatedConferences)
+    {
+        $this->updatedConferences->removeElement($updatedConferences);
+    }
+
+    /**
+     * Get updatedConferences
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUpdatedConferences()
+    {
+        return $this->updatedConferences;
     }
 }
