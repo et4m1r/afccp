@@ -16,49 +16,48 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 class ConferenceController extends Controller {
 
     /**
-     * @Route("/news/list/{page}", name="news_list")
+     * @Route("/conference/list/{page}", name="conference_list")
      */
-    public function newsListAction($page = 1) {
+    public function conferenceListAction($page = 1) {
 
         $em = $this->getDoctrine()->getManager();
-        $posts = $this->getAllPosts($page);
-        $totalPostsReturned = $posts->getIterator()->count();
+        $conferences = $this->getAllConferences($page);
+        $totalConferencesReturned = $conferences->getIterator()->count();
 
-        $totalPosts = $posts->count();
+        $totalConferences = $conferences->count();
 
-        $iterator = $posts->getIterator();
+        $iterator = $conferences->getIterator();
 
         $limit = 2;
-        $maxPages = ceil($totalPosts / $limit);
+        $maxPages = ceil($totalConferences / $limit);
         $thisPage = $page;
 
-        return $this->render('pages/news/news_list.html.twig', array(
+        return $this->render('pages/conference/conference_list.html.twig', array(
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
-                    'posts' => $iterator,
+                    'conferences' => $iterator,
                     'maxPages' => $maxPages,
                     'thisPage' => $thisPage
         ));
     }
 
     /**
-     * @Route("/news/show/{id}", name="news_show")
+     * @Route("/conference/show/{id}", name="conference_show")
      */
-    public function newsShowAction($id) {
+    public function conferenceShowAction($id) {
 
         $em = $this->getDoctrine()->getManager();
 
-        $postData = $em->createQueryBuilder()
-                ->select('p', 'i')
-                ->from('AppBundle:Post', 'p')
-                ->leftJoin('p.images', 'i')
-                ->where('p.id = :id')
+        $conferenceData = $em->createQueryBuilder()
+                ->select('c')
+                ->from('AppBundle:Conference', 'c')
+                ->where('c.id = :id')
                 ->setParameter('id', $id)
                 ->getQuery()
                 ->getResult();
 
-        return $this->render('pages/news/news_show.html.twig', array(
+        return $this->render('pages/conference/conference_show.html.twig', array(
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
-                    'post' => $postData
+                    'conference' => $conferenceData
         ));
     }
 
@@ -73,14 +72,14 @@ class ConferenceController extends Controller {
      *
      * @return \Doctrine\ORM\Tools\Pagination\Paginator
      */
-    public function getAllPosts($currentPage = 1) {
+    public function getAllConferences($currentPage = 1) {
         // Create our query
 
         $em = $this->getDoctrine()->getManager();
 
         $query = $em->createQueryBuilder()
-                ->select('p')
-                ->from('AppBundle:Post', 'p')
+                ->select('c')
+                ->from('AppBundle:Conference', 'c')
                 ->getQuery();
 
         // No need to manually get get the result ($query->getResult())

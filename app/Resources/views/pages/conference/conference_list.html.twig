@@ -25,22 +25,31 @@
                 {% embed 'pages/parts/page_header.html.twig' %}
                     {% block pageheader %}
                         <ul class="breadcrumb">
-                            <li><a href="#">Мэдээ мэдээлэл</a></li>
-                            <li><a href="#">Цаг үе үйл явдал</a></li>
+                            <li><a href="#">Үйл ажиллагаа</a></li>
+                            <li><a href="{{path('conference_list')}}">ШӨХТГ-ын хуралдаан</a></li>
                         </ul>
                     {% endblock %}
                 {% endembed %}
-                {% for post in posts %}
-                    <div class="row news-row">
-                        {% if post.images|length != 0%}
-                            <img class="col-xs-12 col-sm-6" src="{{ asset('uploads/images/post/') }}{{ post.images[0].image }}">
-                        {% endif %}
-                        <h2 class="mt0">{{post.title}}</h2>
-                        <p>{{post.createdAt|date("Y-m-d H:i")}}</p>
-                        {{post.content | easyadmin_truncate(500, true) | raw}}
-                        <a href="{{path('news_show', { 'id': post.id })}}">Дэлгэрэнгүй</a>
-                    </div>
-                {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>№ ХУРАЛДААН</th>
+                            <th>Огноо</th>
+                            <th>Хэлэлцэх асуудал</th>
+                            <th>Хуралдааны тойм</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for conference in conferences %}
+                            <tr>
+                                <td><a href="{{path('conference_show', { 'id': conference.id })}}">{{conference.title}}</a></td>
+                                <td>{{conference.createdAt|date("Y-m-d H:i")}}</td>
+                                <td>{{conference.subject}}</td>
+                                <td>{{conference.content | easyadmin_truncate(20) | raw}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
                 {% if maxPages > 1 %}
                     <ul class="pagination">
@@ -52,13 +61,13 @@
                         {# Render each page number #}
                         {% for i in 1..maxPages %}
                             <li {{ thisPage == i ? 'class="active"' }}>
-                                <a href="{{ path('news_list', {page: i}) }}">{{ i }}</a>
+                                <a href="{{ path('conference_list', {page: i}) }}">{{ i }}</a>
                             </li>
                         {% endfor %}
 
                         {# `»` arrow #}
                         <li {{ thisPage == maxPages ? 'class="disabled"' }}>
-                            <a href="{{ path('news_list', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+                            <a href="{{ path('conference_list', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
                         </li>
                     </ul>
                 {% endif %}

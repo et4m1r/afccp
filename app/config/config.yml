@@ -115,5 +115,11 @@ easy_admin:
                     - title
                     - { property: 'content', type: 'ckeditor'}
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false}}
-                    
-        
+        Conference:
+            controller: AppBundle\Controller\AdminController
+            class: AppBundle\Entity\Conference
+            form:
+                fields:
+                    - title
+                    - subject
+                    - { property: 'content', type: 'ckeditor'}

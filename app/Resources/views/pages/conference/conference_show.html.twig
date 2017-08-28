@@ -22,28 +22,16 @@
                 {% embed 'pages/parts/page_header.html.twig' %}
                     {% block pageheader %}
                         <ul class="breadcrumb">
-                            <li><a href="#">Мэдээ мэдээлэл</a></li>
-                            <li><a href="#">Цаг үе үйл явдал</a></li>
+                            <li><a href="#">Үйл ажиллагаа</a></li>
+                            <li><a href="{{path('conference_list')}}">ШӨХТГ-ын хуралдаан</a></li>
                         </ul>
                     {% endblock %}
                 {% endembed %}
                 <div class="row news-row">
-                    <h2>{{post[0].title}}</h2>
-                    <p>{{post[0].createdAt|date("Y-m-d H:i")}}</p>
-                    {% if post[0].images|length != 0%}
-                        <img class="col-xs-12" src="{{ asset('uploads/images/post/') }}{{post[0].images[0].image}}">
-                        {% set usedId = post[0].images[0].id %}
-                    {% endif %}
-
-                    {{post[0].content | raw}}
-
-                    {% if post[0].images|length > 1%}
-                        {% for img in post[0].images %}
-                            {% if usedId != img.id %}
-                                <img class="col-xs-12" src="{{ asset('uploads/images/post/') }}{{img.image}}">
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                    <h2>{{conference[0].title}}</h2>
+                    <p>{{conference[0].createdAt|date("Y-m-d H:i")}}</p>
+                    <p>{{conference[0].subject}}</p>
+                    {{conference[0].content | raw}}
                 </div>
             </div>
             {% include 'pages/parts/left_sidebar.html.twig' %}
