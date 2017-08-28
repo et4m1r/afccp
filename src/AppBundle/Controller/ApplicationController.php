@@ -13,12 +13,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
-class ApplicationController extends Controller {
+class ApplicationController extends Controller
+{
 
     /**
      * @Route("/news/list/{page}", name="news_list")
      */
-    public function newsListAction($page = 1) {
+    public function newsListAction($page = 1)
+    {
 
         $em = $this->getDoctrine()->getManager();
         $posts = $this->getAllPosts($page);
@@ -43,7 +45,8 @@ class ApplicationController extends Controller {
     /**
      * @Route("/news/show/{id}", name="news_show")
      */
-    public function newsShowAction($id) {
+    public function newsShowAction($id)
+    {
 
         $em = $this->getDoctrine()->getManager();
 
@@ -73,7 +76,8 @@ class ApplicationController extends Controller {
      *
      * @return \Doctrine\ORM\Tools\Pagination\Paginator
      */
-    public function getAllPosts($currentPage = 1) {
+    public function getAllPosts($currentPage = 1)
+    {
         // Create our query
 
         $em = $this->getDoctrine()->getManager();
@@ -107,7 +111,8 @@ class ApplicationController extends Controller {
      *
      * @return \Doctrine\ORM\Tools\Pagination\Paginator
      */
-    public function paginate($dql, $page = 1, $limit = 2) {
+    public function paginate($dql, $page = 1, $limit = 2)
+    {
         $paginator = new Paginator($dql);
 
         $paginator->getQuery()
