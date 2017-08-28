@@ -24,6 +24,17 @@ class MainController extends Controller {
         ));
     }
 
+    /** 
+     * @Route("/changeLanguage/{changeToLocale}", name="changeLanguage")
+     */
+    public function changeLanguageAction($changeToLocale) {
+        $this->getRequest()->setLocale($changeToLocale);
+        
+        return $this->render('pages/index.html.twig', array(
+                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
+        ));
+    }
+
     /**
      * @Route("/greeting", name="greetingpage")
      */
