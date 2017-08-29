@@ -15,28 +15,17 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class MainController extends Controller {
 
     /**
-     * @Route("/home", name="homepage")
+     * @Route("/{_locale}/home", name="homepage")
      */
-    public function indexAction() {
+    public function indexAction(Request $request) {
 
-        return $this->render('pages/index.html.twig', array(
-                    'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
-        ));
-    }
-
-    /** 
-     * @Route("/changeLanguage/{changeToLocale}", name="changeLanguage")
-     */
-    public function changeLanguageAction($changeToLocale) {
-        $this->getRequest()->setLocale($changeToLocale);
-        
         return $this->render('pages/index.html.twig', array(
                     'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
         ));
     }
 
     /**
-     * @Route("/greeting", name="greetingpage")
+     * @Route("/{_locale}/greeting", name="greetingpage")
      */
     public function greetingPageAction() {
         // replace this example code with whatever you need
@@ -46,7 +35,7 @@ class MainController extends Controller {
     }
 
     /**
-     * @Route("/contactus", name="contactuspage")
+     * @Route("/{_locale}/contactus", name="contactuspage")
      */
     public function createAction(Request $request) {
         $contact = new Contact;

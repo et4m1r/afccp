@@ -9,12 +9,19 @@
 {% endblock %} 
 {% block body %}
     <div class="affix-header" style="height:200px;">
-        {{ app.request.locale }}
-        <div class="affix-content"> <img class="affix-logo" src="{{ asset('assets/image/logo/logo-big.png') }}" alt="logo">
+        {#        {{ app.request.locale }}#}
+        <div class="affix-lang">
+            <a href="/mn" class="{{ app.request.locale == 'mn' ?  'active'}}">МОН</a> | <a href="/en" class="{{ app.request.locale == 'en' ?  'active'}}">ENG</a>
+        </div>
+        <div class="affix-content">
+
+            <img class="affix-logo" src="{{ asset('assets/image/logo/logo-big.png') }}" alt="logo">
             <h7 class="affix-title-top">{{ 'gov_config_agency_full'|trans|raw }}</h7>
             <h3 class="affix-title-bot">{{ 'afccp_full'|trans|raw }} </h3> 
         </div>
-        <div class="affix-bg"> </div>
+        <div class="affix-bg"> 
+
+        </div>
     </div>
     <nav class="navbar navbar-default" data-spy="affix" data-offset-top="200">
         <!-- Brand and toggle get grouped for better mobile display -->
